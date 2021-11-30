@@ -54,7 +54,7 @@ class AuthorizationView: UIView {
             stackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
             stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 50),
             stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -50),
-            stackView.heightAnchor.constraint(equalToConstant: 200)
+            stackView.heightAnchor.constraint(equalToConstant: 196)
         ])
     }
     
@@ -77,18 +77,16 @@ class AuthorizationView: UIView {
     private func setupSignInButton() {
         authorizeButton.layer.cornerRadius = 5
         authorizeButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
+        authorizeButton.setTitleColor(.black, for: .normal)
         authorizeButton.setTitle("Sign In", for: .normal)
         authorizeButton.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-        authorizeButton.setTitleColor(.black, for: .normal)
     }
     
     private func setupSingUpButton() {
         signUpButton.layer.cornerRadius = 5
         signUpButton.titleLabel?.font = .systemFont(ofSize: 18)
-        signUpButton.setTitle("Sign Up", for: .normal)
-        signUpButton.backgroundColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
         signUpButton.setTitleColor(.black, for: .normal)
+        signUpButton.setTitle("Create new account", for: .normal)
+        signUpButton.backgroundColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
     }
-
-    
 }

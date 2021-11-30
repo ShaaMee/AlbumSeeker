@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE8F9FAC27565D0900622EFB /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9FAB27565D0800622EFB /* CreateAccountViewController.swift */; };
+		CE8F9FAF27565D6B00622EFB /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9FAE27565D6B00622EFB /* CreateAccountView.swift */; };
 		CEFD7B7F27562EAA00D66096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7B7E27562EAA00D66096 /* AppDelegate.swift */; };
 		CEFD7B8127562EAA00D66096 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7B8027562EAA00D66096 /* SceneDelegate.swift */; };
 		CEFD7B8927562EAA00D66096 /* AlbumSeeker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7B8727562EAA00D66096 /* AlbumSeeker.xcdatamodeld */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE8F9FAB27565D0800622EFB /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		CE8F9FAE27565D6B00622EFB /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		CEFD7B7B27562EAA00D66096 /* AlbumSeeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumSeeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFD7B7E27562EAA00D66096 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEFD7B8027562EAA00D66096 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				CEFD7BA9275633E100D66096 /* AuthorizationView.swift */,
+				CE8F9FAE27565D6B00622EFB /* CreateAccountView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				CEFD7BA6275633A300D66096 /* AuthorizationViewController.swift */,
+				CE8F9FAB27565D0800622EFB /* CreateAccountViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -204,7 +210,9 @@
 				CEFD7BA7275633A300D66096 /* AuthorizationViewController.swift in Sources */,
 				CEFD7B9B275630FA00D66096 /* UserInfo+CoreDataProperties.swift in Sources */,
 				CEFD7B8927562EAA00D66096 /* AlbumSeeker.xcdatamodeld in Sources */,
+				CE8F9FAF27565D6B00622EFB /* CreateAccountView.swift in Sources */,
 				CEFD7B9A275630FA00D66096 /* UserInfo+CoreDataClass.swift in Sources */,
+				CE8F9FAC27565D0900622EFB /* CreateAccountViewController.swift in Sources */,
 				CEFD7B7F27562EAA00D66096 /* AppDelegate.swift in Sources */,
 				CEFD7BAA275633E100D66096 /* AuthorizationView.swift in Sources */,
 				CEFD7B8127562EAA00D66096 /* SceneDelegate.swift in Sources */,
