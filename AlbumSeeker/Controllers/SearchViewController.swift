@@ -24,10 +24,26 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupViewController()
+        setupTableView()
+    }
+    
+    private func setupViewController() {
+        title = "Albums search"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(logout))
+    }
+    
+    @objc private func logout() {
+        let rootVC = UINavigationController(rootViewController: AuthorizationViewController())
+        UIApplication.shared.windows.first?.rootViewController = rootVC
+        //present(rootVC, animated: true)
+    }
+    
+    private func setupTableView() {
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
         mainView.tableView.register(SearchResultsCellTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
-        title = "Albums search"
     }
 }
 
