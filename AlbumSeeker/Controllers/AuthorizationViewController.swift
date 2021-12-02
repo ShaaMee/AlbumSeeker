@@ -17,20 +17,35 @@ class AuthorizationViewController: UIViewController {
     override func loadView() {
         view = AuthorizationView()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainView.authorizeButton.addTarget(self, action: #selector(authorize), for: .touchUpInside)
-        mainView.signUpButton.addTarget(self, action: #selector(signUp), for: .touchUpInside)
+        setupViewController()
     }
     
     @objc private func authorize(){
         
+        // TODO: - Authorization logic here
+        
+        let navigationVC = UINavigationController(rootViewController: SearchViewController())
+        navigationVC.modalPresentationStyle = .fullScreen
+        navigationVC.modalTransitionStyle = .crossDissolve
+        present(navigationVC, animated: true, completion: nil)
     }
-
+    
     @objc private func signUp(){
+        
+        // TODO: - Signing up logic here
+        
         let signUpViewController = CreateAccountViewController()
-        present(signUpViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(signUpViewController, animated: true)
+    }
+    
+    private func setupViewController() {
+        
+        mainView.authorizeButton.addTarget(self, action: #selector(authorize), for: .touchUpInside)
+        mainView.signUpButton.addTarget(self, action: #selector(signUp), for: .touchUpInside)
+        hideKeyboardWhenTappedAround()
     }
 }

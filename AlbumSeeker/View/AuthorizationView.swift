@@ -58,12 +58,14 @@ class AuthorizationView: UIView {
         ])
     }
     
+    
     private func setupEmailTextField() {
         emailTextField.borderStyle = .roundedRect
         emailTextField.placeholder = "Enter your e-mail"
         emailTextField.adjustsFontSizeToFitWidth = true
         emailTextField.backgroundColor = .systemGray5
         emailTextField.clearButtonMode = .whileEditing
+        emailTextField.keyboardType = .emailAddress
     }
     
     private func setupPasswordTextField() {
