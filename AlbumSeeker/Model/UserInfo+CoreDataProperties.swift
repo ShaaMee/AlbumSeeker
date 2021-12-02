@@ -2,7 +2,7 @@
 //  UserInfo+CoreDataProperties.swift
 //  AlbumSeeker
 //
-//  Created by user on 30.11.2021.
+//  Created by user on 03.12.2021.
 //
 //
 
@@ -16,12 +16,12 @@ extension UserInfo {
         return NSFetchRequest<UserInfo>(entityName: "UserInfo")
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var surname: String?
     @NSManaged public var age: Int32
-    @NSManaged public var phoneNumber: Int32
     @NSManaged public var email: String?
+    @NSManaged public var name: String?
     @NSManaged public var password: String?
+    @NSManaged public var phoneNumber: String?
+    @NSManaged public var surname: String?
 
 }
 

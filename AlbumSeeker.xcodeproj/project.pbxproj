@@ -11,6 +11,9 @@
 		CE00FF412756948C00474EC9 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00FF402756948C00474EC9 /* SearchView.swift */; };
 		CE00FF44275695BF00474EC9 /* SearchResultsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00FF43275695BF00474EC9 /* SearchResultsCellTableViewCell.swift */; };
 		CE00FF482759490300474EC9 /* HideKeyboardWhenTappedAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00FF472759490200474EC9 /* HideKeyboardWhenTappedAround.swift */; };
+		CE00FF4C275974B000474EC9 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00FF4B275974AF00474EC9 /* AlertService.swift */; };
+		CE00FF51275977B800474EC9 /* UserInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00FF4F275977B800474EC9 /* UserInfo+CoreDataClass.swift */; };
+		CE00FF52275977B800474EC9 /* UserInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00FF50275977B800474EC9 /* UserInfo+CoreDataProperties.swift */; };
 		CE8F9FAC27565D0900622EFB /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9FAB27565D0800622EFB /* CreateAccountViewController.swift */; };
 		CE8F9FAF27565D6B00622EFB /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9FAE27565D6B00622EFB /* CreateAccountView.swift */; };
 		CEFD7B7F27562EAA00D66096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7B7E27562EAA00D66096 /* AppDelegate.swift */; };
@@ -18,8 +21,6 @@
 		CEFD7B8927562EAA00D66096 /* AlbumSeeker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7B8727562EAA00D66096 /* AlbumSeeker.xcdatamodeld */; };
 		CEFD7B8B27562EAE00D66096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEFD7B8A27562EAE00D66096 /* Assets.xcassets */; };
 		CEFD7B8E27562EAE00D66096 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFD7B8C27562EAE00D66096 /* LaunchScreen.storyboard */; };
-		CEFD7B9A275630FA00D66096 /* UserInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7B98275630FA00D66096 /* UserInfo+CoreDataClass.swift */; };
-		CEFD7B9B275630FA00D66096 /* UserInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7B99275630FA00D66096 /* UserInfo+CoreDataProperties.swift */; };
 		CEFD7BA7275633A300D66096 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7BA6275633A300D66096 /* AuthorizationViewController.swift */; };
 		CEFD7BAA275633E100D66096 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7BA9275633E100D66096 /* AuthorizationView.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,9 @@
 		CE00FF402756948C00474EC9 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		CE00FF43275695BF00474EC9 /* SearchResultsCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsCellTableViewCell.swift; sourceTree = "<group>"; };
 		CE00FF472759490200474EC9 /* HideKeyboardWhenTappedAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardWhenTappedAround.swift; sourceTree = "<group>"; };
+		CE00FF4B275974AF00474EC9 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		CE00FF4F275977B800474EC9 /* UserInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CE00FF50275977B800474EC9 /* UserInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE8F9FAB27565D0800622EFB /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		CE8F9FAE27565D6B00622EFB /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		CEFD7B7B27562EAA00D66096 /* AlbumSeeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumSeeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,8 +42,6 @@
 		CEFD7B8A27562EAE00D66096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEFD7B8D27562EAE00D66096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEFD7B8F27562EAE00D66096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEFD7B98275630FA00D66096 /* UserInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
-		CEFD7B99275630FA00D66096 /* UserInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CEFD7BA6275633A300D66096 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		CEFD7BA9275633E100D66096 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,8 +102,8 @@
 		CEFD7B9D2756311C00D66096 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CEFD7B98275630FA00D66096 /* UserInfo+CoreDataClass.swift */,
-				CEFD7B99275630FA00D66096 /* UserInfo+CoreDataProperties.swift */,
+				CE00FF4F275977B800474EC9 /* UserInfo+CoreDataClass.swift */,
+				CE00FF50275977B800474EC9 /* UserInfo+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -127,6 +129,7 @@
 		CEFD7BA02756313900D66096 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CE00FF4B275974AF00474EC9 /* AlertService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -229,11 +232,12 @@
 			files = (
 				CEFD7BA7275633A300D66096 /* AuthorizationViewController.swift in Sources */,
 				CE00FF3D275691D300474EC9 /* SearchViewController.swift in Sources */,
+				CE00FF52275977B800474EC9 /* UserInfo+CoreDataProperties.swift in Sources */,
+				CE00FF51275977B800474EC9 /* UserInfo+CoreDataClass.swift in Sources */,
+				CE00FF4C275974B000474EC9 /* AlertService.swift in Sources */,
 				CE00FF44275695BF00474EC9 /* SearchResultsCellTableViewCell.swift in Sources */,
-				CEFD7B9B275630FA00D66096 /* UserInfo+CoreDataProperties.swift in Sources */,
 				CEFD7B8927562EAA00D66096 /* AlbumSeeker.xcdatamodeld in Sources */,
 				CE8F9FAF27565D6B00622EFB /* CreateAccountView.swift in Sources */,
-				CEFD7B9A275630FA00D66096 /* UserInfo+CoreDataClass.swift in Sources */,
 				CE8F9FAC27565D0900622EFB /* CreateAccountViewController.swift in Sources */,
 				CEFD7B7F27562EAA00D66096 /* AppDelegate.swift in Sources */,
 				CE00FF482759490300474EC9 /* HideKeyboardWhenTappedAround.swift in Sources */,

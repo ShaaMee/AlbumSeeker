@@ -37,7 +37,6 @@ class SearchViewController: UIViewController {
     @objc private func logout() {
         let rootVC = UINavigationController(rootViewController: AuthorizationViewController())
         UIApplication.shared.windows.first?.rootViewController = rootVC
-        //present(rootVC, animated: true)
     }
     
     private func setupTableView() {

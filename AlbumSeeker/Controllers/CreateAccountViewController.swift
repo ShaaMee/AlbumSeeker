@@ -26,6 +26,7 @@ class CreateAccountViewController: UIViewController {
     
     private func setupViewController() {
         
+        mainView.registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         mainView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         hideKeyboardWhenTappedAround()
         
@@ -47,6 +48,39 @@ class CreateAccountViewController: UIViewController {
         if view.frame.origin.y != 0 {
             view.frame.origin.y = 0
         }
+    }
+    
+    @objc private func registerButtonTapped() {
+        
+        guard validateTextFields() else { return }
+        
+        guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else { return }
+        guard let ageText = mainView.ageTextField.text,
+              let ageInt32 = Int32(ageText) else { return }
+        
+        let newUser = UserInfo(context: context)
+        newUser.name = mainView.nameTextField.text
+        newUser.surname = mainView.surnameTextField.text
+        newUser.age = ageInt32
+        newUser.phoneNumber = mainView.phoneNumberTextField.text
+        newUser.email = mainView.emailTextField.text
+        newUser.password = mainView.passwordTextField.text
+        
+        do {
+            try context.save()
+            AlertService.shared.showAlertWith(messeage: "New user is created!", inViewController: self) {
+                self.dismiss(animated: true)
+            }
+        }
+        catch let error {
+            AlertService.shared.showAlertWith(messeage: error.localizedDescription, inViewController: self)
+        }
+    }
+    
+    private func validateTextFields() -> Bool {
+        
+        // TODO: Validation logic here
+        return true
     }
     
     @objc private func cancelButtonTapped() {

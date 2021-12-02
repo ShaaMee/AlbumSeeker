@@ -2,7 +2,7 @@
 //  UserInfo+CoreDataClass.swift
 //  AlbumSeeker
 //
-//  Created by user on 30.11.2021.
+//  Created by user on 03.12.2021.
 //
 //
 
