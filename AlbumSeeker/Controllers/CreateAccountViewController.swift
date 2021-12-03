@@ -32,6 +32,8 @@ class CreateAccountViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        mainView.phoneNumberTextField.delegate = self
     }
     
     @objc private func keyboardWillShow(notification: NSNotification) {
@@ -68,7 +70,7 @@ class CreateAccountViewController: UIViewController {
         
         do {
             try context.save()
-            AlertService.shared.showAlertWith(messeage: "New user is created!", inViewController: self) {
+            AlertService.shared.showAlertWith(messeage: "New user is created! Now you can log in with your email", inViewController: self) {
                 self.navigationController?.popViewController(animated: true)
             }
         }
@@ -84,12 +86,12 @@ class CreateAccountViewController: UIViewController {
                                                         options: .caseInsensitive),
               let passwordRegEx = try? NSRegularExpression(pattern: "[A-Z0-9a-z._%]{6,}") else { return false}
         
-        // TODO: Validation logic here
         guard englishLettersRegEx.matches(mainView.nameTextField.text!),
               englishLettersRegEx.matches(mainView.surnameTextField.text!) else {
             AlertService.shared.showAlertWith(messeage: "Name and surname should contain english letters only.", inViewController: self)
             return false
         }
+        
         guard let text = mainView.ageTextField.text,
               let age = Int32(text) else {
             AlertService.shared.showAlertWith(messeage: "Age should be a positive number", inViewController: self)
@@ -98,24 +100,54 @@ class CreateAccountViewController: UIViewController {
             AlertService.shared.showAlertWith(messeage: "You should be at least 18 years old", inViewController: self)
             return false
         }
-//        guard phoneNumberRegEx.matches(mainView.phoneNumberTextField.text!) else {
-//            AlertService.shared.showAlertWith(messeage: "Phone number isn't correct", inViewController: self)
-//            return false
-//        }
+        
+        guard phoneNumberRegEx.matches(mainView.phoneNumberTextField.text!) else {
+            AlertService.shared.showAlertWith(messeage: "Phone number isn't correct", inViewController: self)
+            return false
+        }
         guard emailRegEx.matches(mainView.emailTextField.text!) else {
             AlertService.shared.showAlertWith(messeage: "Email is incorrect", inViewController: self)
             return false
         }
+        
         guard passwordRegEx.matches(mainView.passwordTextField.text!) else {
             AlertService.shared.showAlertWith(messeage: "Password should contain at least 6 symbols", inViewController: self)
             return false
         }
-        
-        
         return true
     }
     
     @objc private func cancelButtonTapped() {
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension CreateAccountViewController: UITextFieldDelegate {
+    
+    private func formatPhoneNumber(with mask: String, phoneNumber: String) -> String {
+        let numbers = phoneNumber.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        var result = ""
+        var index = numbers.startIndex
+                
+        for symbol in mask where index < numbers.endIndex {
+            if symbol == "X" && result.contains("+7") && result.count > 2 {
+                result.append(numbers[index])
+                index = numbers.index(after: index)
+            } else if symbol == "7" && numbers[index] == "7"{
+                result.append(symbol)
+                index = numbers.index(after: index)
+            }
+            else {
+                result.append(symbol)
+            }
+        }
+        return result
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return false }
+        let newString = (text as NSString).replacingCharacters(in: range, with: string)
+        textField.text = formatPhoneNumber(with: "+7(XXX)XXX-XX-XX", phoneNumber: newString)
+        return false
     }
 }
