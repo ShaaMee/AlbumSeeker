@@ -122,6 +122,8 @@ class CreateAccountViewController: UIViewController {
     }
 }
 
+// MARK: - TextField Extension to match phone mask
+
 extension CreateAccountViewController: UITextFieldDelegate {
     
     private func formatPhoneNumber(with mask: String, phoneNumber: String) -> String {

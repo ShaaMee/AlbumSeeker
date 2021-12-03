@@ -121,14 +121,17 @@ class CreateAccountView: UIView {
     
     private func setupAgeTextField(){
         ageTextField.placeholder = "Age"
+        ageTextField.keyboardType = .numberPad
     }
     
     private func setupPhoneNumberTextField(){
         phoneNumberTextField.placeholder = "Phone number"
+        phoneNumberTextField.keyboardType = .numberPad
     }
     
     private func setupEmailTextField(){
         emailTextField.placeholder = "E-mail"
+        emailTextField.keyboardType = .emailAddress
     }
     
     private func setupPasswordTextField() {
