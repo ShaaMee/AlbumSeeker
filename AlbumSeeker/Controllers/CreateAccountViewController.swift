@@ -81,7 +81,7 @@ class CreateAccountViewController: UIViewController {
     
     private func validateTextFields() -> Bool {
         guard let englishLettersRegEx = try? NSRegularExpression(pattern: "[a-z]+", options: .caseInsensitive),
-              let phoneNumberRegEx = try? NSRegularExpression(pattern: "[+7][0-9]{3}[-]{3}[-]{2}[-]{2}"),
+              let phoneNumberRegEx = try? NSRegularExpression(pattern: "[+7][(][0-9]{3}[)][0-9]{3}[-][0-9]{2}[-][0-9]{2}"),
               let emailRegEx = try? NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}",
                                                         options: .caseInsensitive),
               let passwordRegEx = try? NSRegularExpression(pattern: "[A-Z0-9a-z._%]{6,}") else { return false}
