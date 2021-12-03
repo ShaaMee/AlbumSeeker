@@ -42,17 +42,17 @@ class AuthorizationViewController: UIViewController {
             let predicate = NSPredicate(format: "email == %@", emailText)
             request.predicate = predicate
             
-            let allUsersData = try context.fetch(request)
-            guard !allUsersData.isEmpty else {
+            let foundUsersData = try context.fetch(request)
+            guard !foundUsersData.isEmpty else {
                 AlertService.shared.showAlertWith(messeage: "No such user is registered", inViewController: self)
                 return
             }
-            for userData in allUsersData {
+            
+            for userData in foundUsersData {
                 guard userData.password == mainView.passwordTextField.text else {
                     AlertService.shared.showAlertWith(messeage: "Wrong password! Please try again.", inViewController: self)
                     return
                 }
-                print("User email is: emailText")
                 login()
             }
             
@@ -71,9 +71,6 @@ class AuthorizationViewController: UIViewController {
     }
     
     @objc private func signUp(){
-        
-        // TODO: - Signing up logic here
-        
         let signUpViewController = CreateAccountViewController()
         navigationController?.pushViewController(signUpViewController, animated: true)
     }

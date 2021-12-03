@@ -14,6 +14,7 @@
 		CE00FF4C275974B000474EC9 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00FF4B275974AF00474EC9 /* AlertService.swift */; };
 		CE00FF51275977B800474EC9 /* UserInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00FF4F275977B800474EC9 /* UserInfo+CoreDataClass.swift */; };
 		CE00FF52275977B800474EC9 /* UserInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00FF50275977B800474EC9 /* UserInfo+CoreDataProperties.swift */; };
+		CE00FF562759904F00474EC9 /* RegularExpressionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00FF552759904D00474EC9 /* RegularExpressionExtension.swift */; };
 		CE8F9FAC27565D0900622EFB /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9FAB27565D0800622EFB /* CreateAccountViewController.swift */; };
 		CE8F9FAF27565D6B00622EFB /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9FAE27565D6B00622EFB /* CreateAccountView.swift */; };
 		CEFD7B7F27562EAA00D66096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7B7E27562EAA00D66096 /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 		CE00FF4B275974AF00474EC9 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		CE00FF4F275977B800474EC9 /* UserInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CE00FF50275977B800474EC9 /* UserInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CE00FF552759904D00474EC9 /* RegularExpressionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionExtension.swift; sourceTree = "<group>"; };
 		CE8F9FAB27565D0800622EFB /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		CE8F9FAE27565D6B00622EFB /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		CEFD7B7B27562EAA00D66096 /* AlbumSeeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumSeeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				CE00FF472759490200474EC9 /* HideKeyboardWhenTappedAround.swift */,
+				CE00FF552759904D00474EC9 /* RegularExpressionExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				CE8F9FAF27565D6B00622EFB /* CreateAccountView.swift in Sources */,
 				CE8F9FAC27565D0900622EFB /* CreateAccountViewController.swift in Sources */,
 				CEFD7B7F27562EAA00D66096 /* AppDelegate.swift in Sources */,
+				CE00FF562759904F00474EC9 /* RegularExpressionExtension.swift in Sources */,
 				CE00FF482759490300474EC9 /* HideKeyboardWhenTappedAround.swift in Sources */,
 				CEFD7BAA275633E100D66096 /* AuthorizationView.swift in Sources */,
 				CEFD7B8127562EAA00D66096 /* SceneDelegate.swift in Sources */,

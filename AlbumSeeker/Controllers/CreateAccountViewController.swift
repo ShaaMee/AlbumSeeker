@@ -69,7 +69,7 @@ class CreateAccountViewController: UIViewController {
         do {
             try context.save()
             AlertService.shared.showAlertWith(messeage: "New user is created!", inViewController: self) {
-                self.dismiss(animated: true)
+                self.navigationController?.popViewController(animated: true)
             }
         }
         catch let error {
@@ -78,8 +78,40 @@ class CreateAccountViewController: UIViewController {
     }
     
     private func validateTextFields() -> Bool {
+        guard let englishLettersRegEx = try? NSRegularExpression(pattern: "[a-z]+", options: .caseInsensitive),
+              let phoneNumberRegEx = try? NSRegularExpression(pattern: "[+7][0-9]{3}[-]{3}[-]{2}[-]{2}"),
+              let emailRegEx = try? NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}",
+                                                        options: .caseInsensitive),
+              let passwordRegEx = try? NSRegularExpression(pattern: "[A-Z0-9a-z._%]{6,}") else { return false}
         
         // TODO: Validation logic here
+        guard englishLettersRegEx.matches(mainView.nameTextField.text!),
+              englishLettersRegEx.matches(mainView.surnameTextField.text!) else {
+            AlertService.shared.showAlertWith(messeage: "Name and surname should contain english letters only.", inViewController: self)
+            return false
+        }
+        guard let text = mainView.ageTextField.text,
+              let age = Int32(text) else {
+            AlertService.shared.showAlertWith(messeage: "Age should be a positive number", inViewController: self)
+            return false}
+        guard age >= 18 else {
+            AlertService.shared.showAlertWith(messeage: "You should be at least 18 years old", inViewController: self)
+            return false
+        }
+//        guard phoneNumberRegEx.matches(mainView.phoneNumberTextField.text!) else {
+//            AlertService.shared.showAlertWith(messeage: "Phone number isn't correct", inViewController: self)
+//            return false
+//        }
+        guard emailRegEx.matches(mainView.emailTextField.text!) else {
+            AlertService.shared.showAlertWith(messeage: "Email is incorrect", inViewController: self)
+            return false
+        }
+        guard passwordRegEx.matches(mainView.passwordTextField.text!) else {
+            AlertService.shared.showAlertWith(messeage: "Password should contain at least 6 symbols", inViewController: self)
+            return false
+        }
+        
+        
         return true
     }
     
