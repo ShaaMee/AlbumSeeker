@@ -18,7 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let navigationViewController = UINavigationController(rootViewController: AuthorizationViewController())
+        // Uncomment when app is ready and delete the following
+        //let navigationViewController = UINavigationController(rootViewController: AuthorizationViewController())
+        
+        let navigationViewController = UINavigationController(rootViewController: SearchViewController())
+
         
         window.rootViewController = navigationViewController
         window.makeKeyAndVisible()

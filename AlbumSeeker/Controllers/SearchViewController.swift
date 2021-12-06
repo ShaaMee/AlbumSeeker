@@ -7,11 +7,12 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UISearchControllerDelegate {
     
     let albums = ["Sting", "Kora"]
     
     private var reuseIdentifier = "searchResultsCell"
+    private let searchController = UISearchController(searchResultsController: nil)
     
     private var mainView: SearchView {
         guard let view = view as? SearchView else { return SearchView() }
@@ -27,6 +28,7 @@ class SearchViewController: UIViewController {
         
         setupViewController()
         setupTableView()
+        setupSearchController()
     }
     
     private func setupViewController() {
@@ -43,6 +45,14 @@ class SearchViewController: UIViewController {
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
         mainView.tableView.register(SearchResultsCellTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+    }
+    
+    private func setupSearchController() {
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
     }
 }
 
@@ -67,5 +77,18 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+}
+
+// MARK: - SearchBar delegate
+
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("Cancel button is clicked")
     }
 }
