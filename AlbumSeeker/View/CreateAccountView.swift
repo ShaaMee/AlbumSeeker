@@ -55,10 +55,8 @@ class CreateAccountView: UIView {
         stackView.spacing = stackViewSpacing
         addSubview(stackView)
         
-        let allViewsInStack = [nameTextField, surnameTextField, ageTextField, phoneNumberTextField, emailTextField, passwordTextField, registerButton, cancelButton]
-        
-        for view in allViewsInStack {
-            stackView.addArrangedSubview(view)
+        [nameTextField, surnameTextField, ageTextField, phoneNumberTextField, emailTextField, passwordTextField, registerButton, cancelButton].forEach {
+            stackView.addArrangedSubview($0)
         }
         
         NSLayoutConstraint.activate([
@@ -102,12 +100,11 @@ class CreateAccountView: UIView {
     }
     
     private func basicSetupFor(textFields: [UITextField]) {
-        
-        for textField in textFields {
-            textField.borderStyle = .roundedRect
-            textField.adjustsFontSizeToFitWidth = true
-            textField.backgroundColor = .systemGray5
-            textField.clearButtonMode = .whileEditing
+        textFields.forEach {
+            $0.borderStyle = .roundedRect
+            $0.adjustsFontSizeToFitWidth = true
+            $0.backgroundColor = .systemGray5
+            $0.clearButtonMode = .whileEditing
         }
     }
     

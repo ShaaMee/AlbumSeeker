@@ -67,7 +67,7 @@ extension SearchViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? SearchResultsCellTableViewCell else {
             return UITableViewCell()
         }
-        cell.textLabel?.text = albums[indexPath.row]
+        cell.albumNameLabel.text = albums[indexPath.row]
         return cell
     }
 }
@@ -78,7 +78,12 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }
+
 
 // MARK: - SearchBar delegate
 
@@ -86,9 +91,5 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("Cancel button is clicked")
     }
 }

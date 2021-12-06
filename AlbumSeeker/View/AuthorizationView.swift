@@ -44,10 +44,9 @@ class AuthorizationView: UIView {
         stackView.spacing = 12
         addSubview(stackView)
         
-        stackView.addArrangedSubview(emailTextField)
-        stackView.addArrangedSubview(passwordTextField)
-        stackView.addArrangedSubview(authorizeButton)
-        stackView.addArrangedSubview(signUpButton)
+        [emailTextField, passwordTextField, authorizeButton, signUpButton].forEach {
+            stackView.addArrangedSubview($0)
+        }
         
         NSLayoutConstraint.activate([
             stackView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor, constant: -50),
