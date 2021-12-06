@@ -15,11 +15,14 @@ class SearchResultsCellTableViewCell: UITableViewCell {
     let artistNameLabel = UILabel()
     let numberOfSongsLabel = UILabel()
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
         setupConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupViews() {
@@ -82,11 +85,4 @@ class SearchResultsCellTableViewCell: UITableViewCell {
             labelsStackView.heightAnchor.constraint(equalTo: albumImageView.heightAnchor),
         ])
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-            // Configure the view for the selected state
-    }
-    
 }
