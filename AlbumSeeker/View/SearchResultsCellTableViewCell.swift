@@ -15,23 +15,12 @@ class SearchResultsCellTableViewCell: UITableViewCell {
     let artistNameLabel = UILabel()
     let numberOfSongsLabel = UILabel()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
         setupViews()
         setupConstraints()
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//
-//        setupViews()
-//        setupConstraints()
-//    }
     
     private func setupViews() {
         setupLabelsStackView()
