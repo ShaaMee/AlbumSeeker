@@ -80,11 +80,11 @@ class CreateAccountViewController: UIViewController {
     }
     
     private func validateTextFields() -> Bool {
-        guard let englishLettersRegEx = try? NSRegularExpression(pattern: "[a-z]+", options: .caseInsensitive),
+        guard let englishLettersRegEx = try? NSRegularExpression(pattern: "^[a-z]+$", options: .caseInsensitive),
               let phoneNumberRegEx = try? NSRegularExpression(pattern: "[+7][(][0-9]{3}[)][0-9]{3}[-][0-9]{2}[-][0-9]{2}"),
-              let emailRegEx = try? NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}",
+              let emailRegEx = try? NSRegularExpression(pattern: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$",
                                                         options: .caseInsensitive),
-              let passwordRegEx = try? NSRegularExpression(pattern: "[A-Z0-9a-z._%]{6,}") else { return false}
+              let passwordRegEx = try? NSRegularExpression(pattern: "^(?=.*?[0-9])(?=.*?[a-z])(?=.*?[A-Z]).{6,}$") else { return false}
         
         guard englishLettersRegEx.matches(mainView.nameTextField.text!),
               englishLettersRegEx.matches(mainView.surnameTextField.text!) else {
@@ -111,7 +111,7 @@ class CreateAccountViewController: UIViewController {
         }
         
         guard passwordRegEx.matches(mainView.passwordTextField.text!) else {
-            AlertService.shared.showAlertWith(messeage: "Password should contain at least 6 symbols", inViewController: self)
+            AlertService.shared.showAlertWith(messeage: "Password should be least 6 symbols long, contain an uppercased letter, a lowercased letter and a digit ", inViewController: self)
             return false
         }
         return true
