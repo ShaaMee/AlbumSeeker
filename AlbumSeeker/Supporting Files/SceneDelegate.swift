@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Uncomment when app is ready and delete the following line
         //let navigationViewController = UINavigationController(rootViewController: AuthorizationViewController())
         let navigationViewController = UINavigationController(rootViewController: SearchViewController())
+        navigationViewController.navigationBar.backgroundColor = .systemGray6
 
         
         window.rootViewController = navigationViewController

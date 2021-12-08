@@ -29,6 +29,7 @@ class SearchViewController: UIViewController, UISearchControllerDelegate {
         setupViewController()
         setupTableView()
         setupSearchController()
+        
     }
     
     private func setupViewController() {
@@ -80,7 +81,7 @@ extension SearchViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return UITableView.automaticDimension
     }
 }
 

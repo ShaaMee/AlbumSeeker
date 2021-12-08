@@ -14,6 +14,7 @@ class SearchResultsCellTableViewCell: UITableViewCell {
     let albumNameLabel = UILabel()
     let artistNameLabel = UILabel()
     let numberOfSongsLabel = UILabel()
+
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -55,7 +56,6 @@ class SearchResultsCellTableViewCell: UITableViewCell {
         albumImageView.backgroundColor = .systemGray5
         albumImageView.layer.cornerRadius = 16
         albumImageView.clipsToBounds = true
-        albumImageView.bounds.size = CGSize(width: 100, height: 100)
         contentView.addSubview(albumImageView)
     }
    
@@ -73,16 +73,21 @@ class SearchResultsCellTableViewCell: UITableViewCell {
     
     private func setupConstraints() {
         
+        let imageHeightConstraint = albumImageView.heightAnchor.constraint(equalToConstant: 100)
+        imageHeightConstraint.priority = .defaultLow
+
+        
         NSLayoutConstraint.activate([
             albumImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             albumImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             albumImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             albumImageView.widthAnchor.constraint(equalTo: albumImageView.heightAnchor),
+            imageHeightConstraint,
             
             labelsStackView.leadingAnchor.constraint(equalTo: albumImageView.trailingAnchor, constant: 20),
             labelsStackView.topAnchor.constraint(equalTo: albumImageView.topAnchor),
             labelsStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            labelsStackView.heightAnchor.constraint(equalTo: albumImageView.heightAnchor),
+            labelsStackView.heightAnchor.constraint(equalTo: albumImageView.heightAnchor)
         ])
     }
 }
