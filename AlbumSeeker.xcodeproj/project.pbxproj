@@ -15,6 +15,7 @@
 		CE00FF51275977B800474EC9 /* UserInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00FF4F275977B800474EC9 /* UserInfo+CoreDataClass.swift */; };
 		CE00FF52275977B800474EC9 /* UserInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00FF50275977B800474EC9 /* UserInfo+CoreDataProperties.swift */; };
 		CE00FF562759904F00474EC9 /* NSRegularExpression+Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00FF552759904D00474EC9 /* NSRegularExpression+Matches.swift */; };
+		CE325B262760C95E00CE2CFF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE325B252760C95E00CE2CFF /* NetworkService.swift */; };
 		CE8F9FAC27565D0900622EFB /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9FAB27565D0800622EFB /* CreateAccountViewController.swift */; };
 		CE8F9FAF27565D6B00622EFB /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9FAE27565D6B00622EFB /* CreateAccountView.swift */; };
 		CE93D70F275E6AF900D96FE2 /* CreateAccountViewController+FormatPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93D70E275E6AF900D96FE2 /* CreateAccountViewController+FormatPhoneNumber.swift */; };
@@ -36,6 +37,7 @@
 		CE00FF4F275977B800474EC9 /* UserInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CE00FF50275977B800474EC9 /* UserInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE00FF552759904D00474EC9 /* NSRegularExpression+Matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Matches.swift"; sourceTree = "<group>"; };
+		CE325B252760C95E00CE2CFF /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		CE8F9FAB27565D0800622EFB /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		CE8F9FAE27565D6B00622EFB /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		CE93D70E275E6AF900D96FE2 /* CreateAccountViewController+FormatPhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateAccountViewController+FormatPhoneNumber.swift"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				CE00FF4B275974AF00474EC9 /* AlertService.swift */,
+				CE325B252760C95E00CE2CFF /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				CE00FF52275977B800474EC9 /* UserInfo+CoreDataProperties.swift in Sources */,
 				CE00FF51275977B800474EC9 /* UserInfo+CoreDataClass.swift in Sources */,
 				CE00FF4C275974B000474EC9 /* AlertService.swift in Sources */,
+				CE325B262760C95E00CE2CFF /* NetworkService.swift in Sources */,
 				CE00FF44275695BF00474EC9 /* SearchResultsCellTableViewCell.swift in Sources */,
 				CEFD7B8927562EAA00D66096 /* AlbumSeeker.xcdatamodeld in Sources */,
 				CE8F9FAF27565D6B00622EFB /* CreateAccountView.swift in Sources */,

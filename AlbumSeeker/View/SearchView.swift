@@ -10,10 +10,12 @@ import UIKit
 class SearchView: UIView {
     
     var tableView = UITableView()
+    let refreshControl = UIRefreshControl()
 
     init() {
         super.init(frame: .zero)
         setupViews()
+        setupRefreshControl()
     }
     
     required init?(coder: NSCoder) {
@@ -24,6 +26,7 @@ class SearchView: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
+        tableView.refreshControl = refreshControl
         addSubview(tableView)
         
         NSLayoutConstraint.activate([

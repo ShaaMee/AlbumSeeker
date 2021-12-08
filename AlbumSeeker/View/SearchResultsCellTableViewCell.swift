@@ -14,7 +14,6 @@ class SearchResultsCellTableViewCell: UITableViewCell {
     let albumNameLabel = UILabel()
     let artistNameLabel = UILabel()
     let numberOfSongsLabel = UILabel()
-
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,7 +27,7 @@ class SearchResultsCellTableViewCell: UITableViewCell {
     
     private func setupViews() {
         setupLabelsStackView()
-        subviewsBasicSetup()
+        viewsBasicSetup()
         setupImageView()
         setupLabels()
     }
@@ -45,7 +44,7 @@ class SearchResultsCellTableViewCell: UITableViewCell {
         contentView.addSubview(labelsStackView)
     }
     
-    private func subviewsBasicSetup() {
+    private func viewsBasicSetup() {
         [self, albumImageView, albumNameLabel, artistNameLabel, numberOfSongsLabel, labelsStackView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -70,13 +69,12 @@ class SearchResultsCellTableViewCell: UITableViewCell {
         artistNameLabel.text = "Artist name: loading..."
         numberOfSongsLabel.text = "Number of songs: loading..."
     }
-    
+
     private func setupConstraints() {
         
         let imageHeightConstraint = albumImageView.heightAnchor.constraint(equalToConstant: 100)
         imageHeightConstraint.priority = .defaultLow
 
-        
         NSLayoutConstraint.activate([
             albumImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             albumImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),

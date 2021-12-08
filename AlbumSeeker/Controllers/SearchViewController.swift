@@ -29,7 +29,7 @@ class SearchViewController: UIViewController, UISearchControllerDelegate {
         setupViewController()
         setupTableView()
         setupSearchController()
-        
+        setupRefreshControl()
     }
     
     private func setupViewController() {
@@ -54,6 +54,14 @@ class SearchViewController: UIViewController, UISearchControllerDelegate {
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
+    }
+    
+    private func setupRefreshControl() {
+        mainView.refreshControl.addTarget(self, action: #selector(fetchAlbums), for: .valueChanged)
+    }
+    
+    @objc private func fetchAlbums() {
+        mainView.refreshControl.endRefreshing()
     }
 }
 
