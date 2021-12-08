@@ -39,7 +39,6 @@ class NetworkService {
                 completion(.failure(.noData))
                 return
             }
-            
             completion(.success(data))
         }
         dataTask.resume()

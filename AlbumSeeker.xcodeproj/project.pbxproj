@@ -20,6 +20,7 @@
 		CE8F9FAF27565D6B00622EFB /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F9FAE27565D6B00622EFB /* CreateAccountView.swift */; };
 		CE93D70F275E6AF900D96FE2 /* CreateAccountViewController+FormatPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93D70E275E6AF900D96FE2 /* CreateAccountViewController+FormatPhoneNumber.swift */; };
 		CEC2D2842760D27C00332528 /* AlbumsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2D2832760D27C00332528 /* AlbumsInfo.swift */; };
+		CEC2D2872760FDB700332528 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2D2862760FDB700332528 /* ImageService.swift */; };
 		CEFD7B7F27562EAA00D66096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7B7E27562EAA00D66096 /* AppDelegate.swift */; };
 		CEFD7B8127562EAA00D66096 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7B8027562EAA00D66096 /* SceneDelegate.swift */; };
 		CEFD7B8927562EAA00D66096 /* AlbumSeeker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7B8727562EAA00D66096 /* AlbumSeeker.xcdatamodeld */; };
@@ -43,6 +44,7 @@
 		CE8F9FAE27565D6B00622EFB /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		CE93D70E275E6AF900D96FE2 /* CreateAccountViewController+FormatPhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateAccountViewController+FormatPhoneNumber.swift"; sourceTree = "<group>"; };
 		CEC2D2832760D27C00332528 /* AlbumsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsInfo.swift; sourceTree = "<group>"; };
+		CEC2D2862760FDB700332528 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		CEFD7B7B27562EAA00D66096 /* AlbumSeeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumSeeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFD7B7E27562EAA00D66096 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEFD7B8027562EAA00D66096 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				CE00FF4B275974AF00474EC9 /* AlertService.swift */,
 				CE325B252760C95E00CE2CFF /* NetworkService.swift */,
+				CEC2D2862760FDB700332528 /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				CE00FF52275977B800474EC9 /* UserInfo+CoreDataProperties.swift in Sources */,
 				CE00FF51275977B800474EC9 /* UserInfo+CoreDataClass.swift in Sources */,
 				CE00FF4C275974B000474EC9 /* AlertService.swift in Sources */,
+				CEC2D2872760FDB700332528 /* ImageService.swift in Sources */,
 				CE325B262760C95E00CE2CFF /* NetworkService.swift in Sources */,
 				CE00FF44275695BF00474EC9 /* SearchResultsCellTableViewCell.swift in Sources */,
 				CEC2D2842760D27C00332528 /* AlbumsInfo.swift in Sources */,

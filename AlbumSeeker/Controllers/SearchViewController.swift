@@ -28,7 +28,7 @@ class SearchViewController: UIViewController, UISearchControllerDelegate {
     override func loadView() {
         view = SearchView()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,22 +85,20 @@ extension SearchViewController: UITableViewDataSource {
         }
         cell.tag = indexPath.row
         cell.activityIndicator.startAnimating()
+        
         DispatchQueue.global().async { [weak self] in
-            guard let self = self,
-                  let imageUrl = URL(string: self.albums[indexPath.row].artworkUrl100),
-                  let imageData = try? Data(contentsOf: imageUrl),
-                  let image = UIImage(data: imageData) else {
+            guard let self = self else {
                 cell.activityIndicator.stopAnimating()
                 return
             }
-            DispatchQueue.main.async {
-                if cell.tag == indexPath.row {
+            ImageService.shared.image(forURLString: self.albums[indexPath.row].artworkUrl100) { image in
+                DispatchQueue.main.async {
+                    guard cell.tag == indexPath.row else { return }
                     cell.albumImageView.image = image
                     cell.activityIndicator.stopAnimating()
                 }
             }
         }
-        
         cell.albumNameLabel.text = albums[indexPath.row].collectionName
         cell.artistNameLabel.text = "Artist name: " + albums[indexPath.row].artistName
         cell.numberOfSongsLabel.text = "Number of songs: " + String(albums[indexPath.row].trackCount)
