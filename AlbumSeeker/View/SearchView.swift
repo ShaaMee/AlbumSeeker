@@ -15,7 +15,6 @@ class SearchView: UIView {
     init() {
         super.init(frame: .zero)
         setupViews()
-        setupRefreshControl()
     }
     
     required init?(coder: NSCoder) {
