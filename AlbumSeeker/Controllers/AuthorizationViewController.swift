@@ -11,8 +11,7 @@ import CoreData
 class AuthorizationViewController: UIViewController {
     
     private var mainView: AuthorizationView {
-        guard let view = view as? AuthorizationView else { return AuthorizationView() }
-        return view
+        return view as? AuthorizationView ?? AuthorizationView()
     }
     
     override func loadView() {
@@ -44,13 +43,13 @@ class AuthorizationViewController: UIViewController {
             
             let foundUsersData = try context.fetch(request)
             guard !foundUsersData.isEmpty else {
-                AlertService.shared.showAlertWith(messeage: "No such user is registered", inViewController: self)
+                AlertService.shared.showAlertWith(message: "No such user is registered", inViewController: self)
                 return
             }
             
             for userData in foundUsersData {
                 guard userData.password == mainView.passwordTextField.text else {
-                    AlertService.shared.showAlertWith(messeage: "Wrong password! Please try again.", inViewController: self)
+                    AlertService.shared.showAlertWith(message: "Wrong password! Please try again.", inViewController: self)
                     return
                 }
                 login()
@@ -58,7 +57,7 @@ class AuthorizationViewController: UIViewController {
             
         }
         catch {
-            AlertService.shared.showAlertWith(messeage: "No such user is registered", inViewController: self)
+            AlertService.shared.showAlertWith(message: "No such user is registered", inViewController: self)
         }
     }
     

@@ -10,8 +10,7 @@ import UIKit
 class CreateAccountViewController: UIViewController {
     
     private var mainView: CreateAccountView {
-        guard let view = view as? CreateAccountView else { return CreateAccountView() }
-        return view
+        return view as? CreateAccountView ?? CreateAccountView()
     }
     
     override func loadView() {
@@ -70,12 +69,12 @@ class CreateAccountViewController: UIViewController {
         
         do {
             try context.save()
-            AlertService.shared.showAlertWith(messeage: "New user is created! Now you can log in with your email", inViewController: self) {
+            AlertService.shared.showAlertWith(message: "New user is created! Now you can log in with your email", inViewController: self) {
                 self.navigationController?.popViewController(animated: true)
             }
         }
         catch let error {
-            AlertService.shared.showAlertWith(messeage: error.localizedDescription, inViewController: self)
+            AlertService.shared.showAlertWith(message: error.localizedDescription, inViewController: self)
         }
     }
     
@@ -88,30 +87,30 @@ class CreateAccountViewController: UIViewController {
         
         guard englishLettersRegEx.matches(mainView.nameTextField.text!),
               englishLettersRegEx.matches(mainView.surnameTextField.text!) else {
-            AlertService.shared.showAlertWith(messeage: "Name and surname should contain english letters only.", inViewController: self)
+            AlertService.shared.showAlertWith(message: "Name and surname should contain english letters only.", inViewController: self)
             return false
         }
         
         guard let text = mainView.ageTextField.text,
               let age = Int32(text) else {
-            AlertService.shared.showAlertWith(messeage: "Age should be a positive number", inViewController: self)
+            AlertService.shared.showAlertWith(message: "Age should be a positive number", inViewController: self)
             return false}
         guard age >= 18 else {
-            AlertService.shared.showAlertWith(messeage: "You should be at least 18 years old", inViewController: self)
+            AlertService.shared.showAlertWith(message: "You should be at least 18 years old", inViewController: self)
             return false
         }
         
         guard phoneNumberRegEx.matches(mainView.phoneNumberTextField.text!) else {
-            AlertService.shared.showAlertWith(messeage: "Phone number isn't correct", inViewController: self)
+            AlertService.shared.showAlertWith(message: "Phone number isn't correct", inViewController: self)
             return false
         }
         guard emailRegEx.matches(mainView.emailTextField.text!) else {
-            AlertService.shared.showAlertWith(messeage: "Email is incorrect", inViewController: self)
+            AlertService.shared.showAlertWith(message: "Email is incorrect", inViewController: self)
             return false
         }
         
         guard passwordRegEx.matches(mainView.passwordTextField.text!) else {
-            AlertService.shared.showAlertWith(messeage: "Password should be least 6 symbols long, contain an uppercased letter, a lowercased letter and a digit ", inViewController: self)
+            AlertService.shared.showAlertWith(message: "Password should be least 6 symbols long, contain an uppercased letter, a lowercased letter and a digit ", inViewController: self)
             return false
         }
         return true

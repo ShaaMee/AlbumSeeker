@@ -21,6 +21,10 @@
 		CE93D70F275E6AF900D96FE2 /* CreateAccountViewController+FormatPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93D70E275E6AF900D96FE2 /* CreateAccountViewController+FormatPhoneNumber.swift */; };
 		CEC2D2842760D27C00332528 /* AlbumsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2D2832760D27C00332528 /* AlbumsInfo.swift */; };
 		CEC2D2872760FDB700332528 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2D2862760FDB700332528 /* ImageService.swift */; };
+		CEC2D28A2761033A00332528 /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2D2892761033A00332528 /* AlbumDetailsViewController.swift */; };
+		CEC2D28D2761046000332528 /* AlbumDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2D28C2761046000332528 /* AlbumDetailsView.swift */; };
+		CEC2D2902761181D00332528 /* AlbumDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2D28F2761181D00332528 /* AlbumDetails.swift */; };
+		CEC2D29427611BB700332528 /* SongTableVewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2D29327611BB700332528 /* SongTableVewCell.swift */; };
 		CEFD7B7F27562EAA00D66096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7B7E27562EAA00D66096 /* AppDelegate.swift */; };
 		CEFD7B8127562EAA00D66096 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7B8027562EAA00D66096 /* SceneDelegate.swift */; };
 		CEFD7B8927562EAA00D66096 /* AlbumSeeker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEFD7B8727562EAA00D66096 /* AlbumSeeker.xcdatamodeld */; };
@@ -45,6 +49,10 @@
 		CE93D70E275E6AF900D96FE2 /* CreateAccountViewController+FormatPhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateAccountViewController+FormatPhoneNumber.swift"; sourceTree = "<group>"; };
 		CEC2D2832760D27C00332528 /* AlbumsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsInfo.swift; sourceTree = "<group>"; };
 		CEC2D2862760FDB700332528 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		CEC2D2892761033A00332528 /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
+		CEC2D28C2761046000332528 /* AlbumDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsView.swift; sourceTree = "<group>"; };
+		CEC2D28F2761181D00332528 /* AlbumDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetails.swift; sourceTree = "<group>"; };
+		CEC2D29327611BB700332528 /* SongTableVewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableVewCell.swift; sourceTree = "<group>"; };
 		CEFD7B7B27562EAA00D66096 /* AlbumSeeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumSeeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFD7B7E27562EAA00D66096 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEFD7B8027562EAA00D66096 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +85,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		CEC2D29227611B4500332528 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE00FF43275695BF00474EC9 /* SearchResultsCellTableViewCell.swift */,
+				CEC2D29327611BB700332528 /* SongTableVewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		CEFD7B7227562EAA00D66096 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +116,7 @@
 				CE00FF46275948C500474EC9 /* Extensions */,
 				CEFD7B9D2756311C00D66096 /* Model */,
 				CEFD7B9E2756312400D66096 /* View */,
+				CEC2D29227611B4500332528 /* Cells */,
 				CEFD7B9F2756312B00D66096 /* ViewModel */,
 				CEFD7BA22756317900D66096 /* Controllers */,
 				CEFD7BA12756316C00D66096 /* Helpers */,
@@ -117,6 +135,7 @@
 				CE00FF4F275977B800474EC9 /* UserInfo+CoreDataClass.swift */,
 				CE00FF50275977B800474EC9 /* UserInfo+CoreDataProperties.swift */,
 				CEC2D2832760D27C00332528 /* AlbumsInfo.swift */,
+				CEC2D28F2761181D00332528 /* AlbumDetails.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -127,7 +146,7 @@
 				CEFD7BA9275633E100D66096 /* AuthorizationView.swift */,
 				CE8F9FAE27565D6B00622EFB /* CreateAccountView.swift */,
 				CE00FF402756948C00474EC9 /* SearchView.swift */,
-				CE00FF43275695BF00474EC9 /* SearchResultsCellTableViewCell.swift */,
+				CEC2D28C2761046000332528 /* AlbumDetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +181,7 @@
 				CEFD7BA6275633A300D66096 /* AuthorizationViewController.swift */,
 				CE8F9FAB27565D0800622EFB /* CreateAccountViewController.swift */,
 				CE00FF3C275691D300474EC9 /* SearchViewController.swift */,
+				CEC2D2892761033A00332528 /* AlbumDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -247,6 +267,7 @@
 			files = (
 				CEFD7BA7275633A300D66096 /* AuthorizationViewController.swift in Sources */,
 				CE00FF3D275691D300474EC9 /* SearchViewController.swift in Sources */,
+				CEC2D28A2761033A00332528 /* AlbumDetailsViewController.swift in Sources */,
 				CE00FF52275977B800474EC9 /* UserInfo+CoreDataProperties.swift in Sources */,
 				CE00FF51275977B800474EC9 /* UserInfo+CoreDataClass.swift in Sources */,
 				CE00FF4C275974B000474EC9 /* AlertService.swift in Sources */,
@@ -260,8 +281,11 @@
 				CE8F9FAC27565D0900622EFB /* CreateAccountViewController.swift in Sources */,
 				CEFD7B7F27562EAA00D66096 /* AppDelegate.swift in Sources */,
 				CE00FF562759904F00474EC9 /* NSRegularExpression+Matches.swift in Sources */,
+				CEC2D2902761181D00332528 /* AlbumDetails.swift in Sources */,
 				CE00FF482759490300474EC9 /* UIViewController+HideKeyboardWhenTappedAround.swift in Sources */,
+				CEC2D29427611BB700332528 /* SongTableVewCell.swift in Sources */,
 				CEFD7BAA275633E100D66096 /* AuthorizationView.swift in Sources */,
+				CEC2D28D2761046000332528 /* AlbumDetailsView.swift in Sources */,
 				CEFD7B8127562EAA00D66096 /* SceneDelegate.swift in Sources */,
 				CE00FF412756948C00474EC9 /* SearchView.swift in Sources */,
 			);

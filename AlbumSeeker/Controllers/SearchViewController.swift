@@ -21,8 +21,7 @@ class SearchViewController: UIViewController, UISearchControllerDelegate {
     private let searchController = UISearchController(searchResultsController: nil)
     
     private var mainView: SearchView {
-        guard let view = view as? SearchView else { return SearchView() }
-        return view
+        return (view as? SearchView) ?? SearchView()
     }
     
     override func loadView() {
@@ -110,6 +109,8 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailsViewController = AlbumDetailsViewController(albumID: albums[indexPath.row].collectionId)
+        navigationController?.pushViewController(detailsViewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -150,7 +151,7 @@ extension SearchViewController: UISearchBarDelegate {
             
             switch requestResult {
             case .failure(let error):
-                AlertService.shared.showAlertWith(messeage: error.localizedDescription, inViewController: self)
+                AlertService.shared.showAlertWith(message: error.localizedDescription, inViewController: self)
             case .success(let data):
                 self.decodeReceivedData(data)
             }
@@ -164,7 +165,7 @@ extension SearchViewController: UISearchBarDelegate {
             self.albums = albumsData.results.sorted {$0.collectionName.lowercased() < $1.collectionName.lowercased()}
         }
         catch {
-            AlertService.shared.showAlertWith(messeage: "Can't decode Albums info from server data", inViewController: self)
+            AlertService.shared.showAlertWith(message: "Can't decode Albums info from server data: \(error.localizedDescription)", inViewController: self)
         }
     }
 }

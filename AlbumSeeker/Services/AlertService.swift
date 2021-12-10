@@ -12,9 +12,9 @@ class AlertService {
     
     private init(){}
     
-    func showAlertWith(messeage: String, inViewController vc: UIViewController, completion: (() -> Void)? = nil){
+    func showAlertWith(message: String, inViewController vc: UIViewController, completion: (() -> Void)? = nil){
         DispatchQueue.main.async {
-            let alert = UIAlertController(title: "Attention please!", message: messeage, preferredStyle: .alert)
+            let alert = UIAlertController(title: "Attention please!", message: message, preferredStyle: .alert)
             let action = UIAlertAction(title: "Ок", style: .default) { action in
                 guard let completion = completion else { return }
                 completion()
