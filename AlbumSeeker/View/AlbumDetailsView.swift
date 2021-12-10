@@ -68,7 +68,6 @@ class AlbumDetailsView: UIView {
     
     private func setupLabels() {
         [albumNameLabel, artistNameLabel, albumReleaseYearLabel].forEach { label in
-            label.text = "Loading..."
             label.numberOfLines = 0
             label.font = UIFont.preferredFont(forTextStyle: .body)
             label.textColor = .label

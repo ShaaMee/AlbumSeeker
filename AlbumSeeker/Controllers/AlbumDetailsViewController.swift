@@ -14,15 +14,14 @@ class AlbumDetailsViewController: UIViewController {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
-                self.mainView.songsListTableView.reloadData()
-                self.mainView.songsListTableView.heightAnchor.constraint(equalToConstant: self.numberOfRows * self.mainView.songsTableViewRowHeight).isActive = true
+                self.updateMainView(self.mainView)
             }
         }
     }
     private var reuseIdentifier = "songCell"
     private var numberOfRows: CGFloat {
         let numberOfSections = mainView.songsListTableView.numberOfSections
-        guard numberOfSections > 0 else { return 0 }
+        guard numberOfSections == 1 else { return 0 }
         return CGFloat(mainView.songsListTableView.numberOfRows(inSection: 0))
     }
     
@@ -50,13 +49,14 @@ class AlbumDetailsViewController: UIViewController {
         fetchAlbumDetailsFor(albumID)
     }
     
-    func setupMainView() {
+    private func setupMainView() {
         mainView.songsListTableView.register(SongTableVewCell.self, forCellReuseIdentifier: reuseIdentifier)
         mainView.songsListTableView.dataSource = self
         mainView.songsListTableView.delegate = self
+        mainView.activityIndicator.startAnimating()
     }
     
-    func fetchAlbumDetailsFor(_ albumID: Int) {
+    private func fetchAlbumDetailsFor(_ albumID: Int) {
         guard let requestUrl = composeURLComponentsForAlbumID(albumID: albumID).url else { return }
         NetworkService.shared.fetchRequestFor(url: requestUrl) { [weak self] result in
             guard let self = self else { return }
@@ -69,7 +69,7 @@ class AlbumDetailsViewController: UIViewController {
         }
     }
     
-    func composeURLComponentsForAlbumID(albumID: Int) -> URLComponents {
+    private func composeURLComponentsForAlbumID(albumID: Int) -> URLComponents {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "itunes.apple.com"
@@ -81,7 +81,7 @@ class AlbumDetailsViewController: UIViewController {
         return urlComponents
     }
     
-    func decodeReceivedData(_ data: Data) {
+    private func decodeReceivedData(_ data: Data) {
         let decoder = JSONDecoder()
         do {
             let albumData = try decoder.decode(AlbumDetails.self, from: data)
@@ -96,20 +96,35 @@ class AlbumDetailsViewController: UIViewController {
             AlertService.shared.showAlertWith(message: "Can't decode Album info from server data: \(error.localizedDescription)", inViewController: self)
         }
     }
+    
+    private func updateMainView(_ view: AlbumDetailsView) {
+        view.songsListTableView.reloadData()
+        view.songsListTableView.heightAnchor.constraint(equalToConstant: numberOfRows * view.songsTableViewRowHeight).isActive = true
+        view.albumNameLabel.text = selectedAlbumInfo.first?.collectionName
+        view.artistNameLabel.text = selectedAlbumInfo.first?.artistName
+        view.albumReleaseYearLabel.text = selectedAlbumInfo.first?.releaseDate
+        
+        guard let albumCoverImageUrl = selectedAlbumInfo.first?.artworkUrl100.replacingOccurrences(of: "100x100", with: "300x300") else { return }
+        ImageService.shared.image(forURLString: albumCoverImageUrl) { [weak view] coverImage in
+            DispatchQueue.main.async {
+                view?.albumCoverImage.image = coverImage
+                view?.activityIndicator.stopAnimating()
+            }
+        }
+    }
 }
 
 extension AlbumDetailsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return selectedAlbumInfo.first?.trackCount ?? 0
+        return selectedAlbumInfo.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? SongTableVewCell else { return UITableViewCell() }
         cell.trackNameLabel.text = selectedAlbumInfo[indexPath.row].trackName
-        guard let trackNumber = selectedAlbumInfo[indexPath.row].trackNumber,
-              let trackTime = selectedAlbumInfo[indexPath.row].trackTimeMillis else { return cell }
-        cell.trackNumberLabel.text = String(trackNumber)
+        guard let trackTime = selectedAlbumInfo[indexPath.row].trackTimeMillis else { return cell }
+        cell.trackNumberLabel.text = "\(indexPath.row + 1)."
         cell.trackTimeLabel.text = String(trackTime)
         return cell
     }
@@ -121,6 +136,5 @@ extension AlbumDetailsViewController: UITableViewDataSource {
 }
 
 extension AlbumDetailsViewController: UITableViewDelegate {
-    
 
 }
